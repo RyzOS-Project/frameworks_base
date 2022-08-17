@@ -14,20 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
-   <!-- Settings Restart -->
-    <java-symbol type="string" name="settings_restart_title" />
-    <java-symbol type="string" name="settings_restart_message" />
-    <!-- Soft restart dialog -->
-    <java-symbol type="string" name="system_restart_title" />
-    <java-symbol type="string" name="system_restart_message" />
-    <!-- SystemUI restart dialog -->
-    <java-symbol type="string" name="systemui_restart_title" />
-    <java-symbol type="string" name="systemui_restart_message" />
-    <!-- Launcher restart dialog -->
-    <java-symbol type="string" name="launcher_restart_title" />
-    <java-symbol type="string" name="launcher_restart_message" />
-
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Whether to cancel fingerprint operation if not idle -->
-    <java-symbol type="bool" name="config_fpCancelIfNotIdle" />
+    <bool name="config_fpCancelIfNotIdle">false</bool>
 </resources>
