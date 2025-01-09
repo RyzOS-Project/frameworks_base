@@ -48,6 +48,9 @@
     <dimen name="qs_bottom_brightness_margin_top">8dp</dimen>
     <dimen name="qs_bottom_brightness_margin_bottom">4dp</dimen>
 
+    <!-- QS Brightness slider percentage -->
+    <dimen name="qs_brightness_percentage_margin_left">6dp</dimen>
+
     <!-- Maximum vertical offset of statusbar for burn-in protection -->
     <dimen name="status_bar_offset_max_y">4dp</dimen>
 
