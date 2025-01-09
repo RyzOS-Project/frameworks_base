@@ -147,6 +147,14 @@ public class QSPanelController extends QSPanelControllerBase<QSPanel> {
         mTunerService.addTunable(mView, QSPanel.QS_SHOW_BRIGHTNESS_SLIDER);
         mTunerService.addTunable(mView, QSPanel.QS_SHOW_AUTO_BRIGHTNESS);
         mTunerService.addTunable(mView, QSPanel.QS_BRIGHTNESS_SLIDER_POSITION);
+<<<<<<< HEAD
+=======
+        mTunerService.addTunable(mView, QSPanel.QS_SHOW_BRIGHTNESS_PERCENTAGE);
+        mTunerService.addTunable(mView, QSPanel.QS_LAYOUT_COLUMNS);
+        mTunerService.addTunable(mView, QSPanel.QS_LAYOUT_COLUMNS_LANDSCAPE);
+        mTunerService.addTunable(mView, QSPanel.QS_LAYOUT_ROWS);
+        mTunerService.addTunable(mView, QSPanel.QS_LAYOUT_ROWS_LANDSCAPE);
+>>>>>>> 6de2fc184354 (SystemUI: add percentage view to brightness slider [1/3])
 
         mView.setBrightnessRunnable(() -> {
             mView.updateResources();

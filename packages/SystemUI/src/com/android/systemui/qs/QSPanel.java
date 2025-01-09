@@ -36,6 +36,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.VisibleForTesting;
 
@@ -64,7 +65,8 @@ public class QSPanel extends LinearLayout implements Tunable {
             "lineagesecure:" + LineageSettings.Secure.QS_SHOW_BRIGHTNESS_SLIDER;
     public static final String QS_BRIGHTNESS_SLIDER_POSITION =
             "lineagesecure:" + LineageSettings.Secure.QS_BRIGHTNESS_SLIDER_POSITION;
-
+    public static final String QS_SHOW_BRIGHTNESS_PERCENTAGE =
+            "lineagesecure:" + LineageSettings.Secure.QS_SHOW_BRIGHTNESS_PERCENTAGE;
     private static final String TAG = "QSPanel";
 
     protected final Context mContext;
@@ -81,6 +83,7 @@ public class QSPanel extends LinearLayout implements Tunable {
     @Nullable
     protected View mBrightnessView;
     protected View mAutoBrightnessView;
+    protected TextView mPercentageView;
 
     @Nullable
     protected BrightnessSliderController mToggleSliderController;
@@ -232,6 +235,7 @@ public class QSPanel extends LinearLayout implements Tunable {
         }
         mBrightnessView = view;
         mAutoBrightnessView = view.findViewById(R.id.brightness_icon);
+        mPercentageView = view.findViewById(R.id.brightness_percentage);
         setBrightnessViewMargin(mTop);
         if (mBrightnessView != null) {
             addView(mBrightnessView);
@@ -401,28 +405,17 @@ public class QSPanel extends LinearLayout implements Tunable {
                             TunerService.parseIntegerSwitch(newValue, true) ? View.VISIBLE : View.GONE);
                 }
                 break;
+            case QS_SHOW_BRIGHTNESS_PERCENTAGE:
+                if (mPercentageView != null) {
+                    mPercentageView.setVisibility(
+                            TunerService.parseIntegerSwitch(newValue, false) ? View.VISIBLE : View.GONE);
+                }
+                break;
             default:
                 break;
          }
     }
 
-    public void setBrightnessRunnable(Runnable runnable) {
-        mBrightnessRunnable = runnable;
-    }
-
-
-    @Nullable
-    View getBrightnessView() {
-        return mBrightnessView;
-    }
-
-    /**
-     * Links the footer's page indicator, which is used in landscape orientation to save space.
-     *
-     * @param pageIndicator indicator to use for page scrolling
-     */
-    public void setFooterPageIndicator(PageIndicator pageIndicator) {
-        if (mTileLayout instanceof PagedTileLayout) {
             mFooterPageIndicator = pageIndicator;
             updatePageIndicator();
         }
