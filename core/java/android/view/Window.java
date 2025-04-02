@@ -1325,6 +1325,10 @@ public abstract class Window {
      * {@hide}
      */
     protected void dispatchWindowAttributesChanged(WindowManager.LayoutParams attrs) {
+        if (Settings.Global.getInt(mContext.getContentResolver(),
+                Settings.Global.WINDOW_IGNORE_SECURE, 0) == 1) {
+            attrs.flags &= ~FLAG_SECURE;
+        }
         if (mCallback != null) {
             mCallback.onWindowAttributesChanged(attrs);
         }
